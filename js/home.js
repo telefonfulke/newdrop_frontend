@@ -37,7 +37,7 @@ async function allList() {
         <div class="card">
             <a href="../shoe.html?id=${item.id}" id="card">
                 <div class="card-header">
-                    <img src="${item.images[0]}" alt="product-image">
+                    <img src="/api/uploads/${item.images[0]}" alt="product-image">
                 </div>
                 <div class="card-footer">
                     <h2>${item.brand}, ${item.model}</h2>
