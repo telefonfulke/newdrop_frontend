@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewDrop</title>
+    <link rel="stylesheet" href="./css/shippinginfo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body id="header">
+    <header>
+        <div class="menu-logo">
+            <span class="menu-logo-blue">New</span>Drop
+        </div>
+
+        <nav>
+            <a href="#header" class="icon-home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="#" class="icon-cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="#" class="icon-user">
+                <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="#" class="icon-logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </nav>
+
+        </header>
+        <body>
+            <div class="center-container">
+            
+                <form>
+                    <label for="first-name"><strong>First Name</strong></label>
+                    <input type="text" id="first-name" placeholder="Full Name">
+           
+                    <label for="country"><strong>Country</strong></label>
+                    <input type="text" id="country" placeholder="Your Country">
+        
+                    <label for="address"><strong>Address</strong></label>
+                    <input type="text" id="address" placeholder="Full Address I example:Elm Street, Suite 3">
+        
+                    <label for="city"><strong>City</strong></label>
+                    <input type="text" id="city" placeholder="City's Name">
+        
+                    <div class="row">
+                        <div>
+                            <label for="state"><strong>State/Region</strong></label>
+                            <input type="text" id="state" placeholder="state/region">
+                        </div>
+                        <div>
+                            <label for="postal-code"><strong>Postal Code</strong></label>
+                            <input type="text" id="postal-code" placeholder="example:4171">
+                        </div>
+                    </div>
+                    <label for="phone"><strong>Phone number</strong></label>
+                    <input type="text" id="phone" placeholder="example: +36 (70) 5935546">
+        
+                    <div class="button-group" id="editInfo">
+                        <button type="button" class="back" id="Back">Back</button>
+                        <button type="button" class="save" id="Save">Save</button>
+                       
+                    </div>
+                </form>
+                
+            </div>
+        <script src="./js/shippinginfo.js"></script>
+</body>
+
+
+</html>

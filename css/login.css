@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.tarolo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 3rem;
+}
+
+.RememberMe{
+    display: flex;
+    margin-right: auto;
+    margin-bottom: none;
+}
+
+.Remembertext{
+    font-size: medium;
+}
+
+#checkboxid{
+    position: relative;
+    display: block;
+    left: 2px;
+    width: 27px;
+    height: 14px;
+    border-width: 3px;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.focim {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 500;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.focim_kek {
+    color: blue;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.login {
+    background-color: blue;
+    border-radius: 20px;
+    padding: 15px;
+    width: 500px;
+    margin: 13px 0 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#btnLogin {
+    font-size: 1.5rem;
+    color: white;
+    background-color: inherit;
+    border: none;
+    cursor: inherit;
+}
+
+.login:hover {
+    background-color: #3F00FF;
+}
+
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    border: 1px solid grey;
+    border-radius: 16px;
+    margin: 20px 0;
+}
+
+input {
+    font-size: 1.5rem;
+    padding: 7px;
+    width: 90%;
+    border: none;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 428px) {
+    .login,
+    .input {
+        width: 350px;
+    }
+}
+
+@media screen and (max-height: 430px) {
+    .tarolo {
+        height: 100%;
+        justify-content: flex-start;
+    }
+}

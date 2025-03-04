@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewDrop</title>
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body id="header" onload="allList()">
+    <header>
+        <div class="menu-logo">
+            <span class="menu-logo-blue">New</span>Drop
+        </div>
+
+        <nav>
+
+            <div class="search-container">
+                <input type="text" class="search-bar" id="search" placeholder="Search...">
+                <div class="dropdown" id="dropdown"></div>
+            </div>
+            
+            <script>
+                async function search() {
+                    const query = document.getElementById("search").value.trim();
+                    const dropdown = document.getElementById("dropdown");
+            
+                    if (!query) {
+                        dropdown.classList.remove("active");
+                        dropdown.innerHTML = "";
+                        return;
+                    }
+            
+                    try {
+                        const response = await fetch(`/api/search/${encodeURIComponent(query)}`);
+                        const data = await response.json();
+            
+                        dropdown.innerHTML = "";
+            
+                        if (response.ok) {
+                            if (data.length === 0) {
+                                dropdown.classList.remove("active");
+                                return;
+                            }
+            
+                            data.forEach(item => {
+                                const dropdownItem = document.createElement("div");
+                                dropdownItem.classList.add("dropdown-item");
+                                dropdownItem.innerHTML = `
+                                    <img src="${item.images[0] || 'default.jpg'}" alt="product-image">
+                                    <p>${item.brand} - ${item.model}</p>
+                                `;
+            
+                                
+                                dropdownItem.addEventListener("click", () => {
+                                    window.location.href = `shoe.html?id=${item.id}`;
+                                });
+            
+                                dropdown.appendChild(dropdownItem);
+                            });
+            
+                            dropdown.classList.add("active");
+                        } else {
+                            dropdown.innerHTML = `<p>${data.message}</p>`;
+                        }
+            
+                    } catch (error) {
+                        console.error("Hiba:", error);
+                    }
+                }
+            
+                document.getElementById("search").addEventListener("keyup", search);
+            
+                document.addEventListener("click", (e) => {
+                    const dropdown = document.getElementById("dropdown");
+                    if (!document.querySelector(".search-container").contains(e.target)) {
+                        dropdown.classList.remove("active");
+                    }
+                });
+            </script>
+            
+            
+
+            <a href="../sell.html" class="sell">Sell</a>
+            <a href="#header" class="icon-home">
+
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="#" class="icon-cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="#" class="icon-user">
+                <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="#" class="icon-logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <h3 class="section-title"> Recommended for you</h3>
+        <div class="box-body">
+            <div class="items">
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h3 class="section-title"> Your Listings</h3>
+        <div class="box-body">
+            <div class="items" id="ide">
+            </div>
+        </div>
+    </div>
+
+
+
+    </div>
+
+    <script src="./js/home.js"></script>
+</body>
+
+</html>

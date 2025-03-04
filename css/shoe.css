@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+
+header {
+    background-color: white;
+    padding: 15px 30px;
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 6px grey;
+}
+
+.menu-logo, .menu-logo-blue {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    user-select: none;
+    color: blue;
+}
+
+.menu-logo-blue {
+    color: black;
+}
+
+/* menü alapállapotban */
+nav {
+    display: flex;
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+}
+
+.icon-home, .icon-user, .icon-logout, .icon-cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    transition: ease 500ms;
+}
+
+.icon-logout {
+    color: black;
+}
+
+.product-card{
+    display:flex;
+    padding: 0 60px;
+    flex: 1;
+    flex-direction: row;
+    gap: 48px;
+    align-items: center;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 160px;
+}
+
+.images {
+    width: 50%;
+}
+
+.main-image {
+    width: 100%;
+}
+
+.icon-home:hover,
+.icon-user:hover,
+.icon-logout:hover,
+.icon-cart:hover {
+    transform: scale(1.1);
+}
+
+/* hamburger menü */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    background-color: white;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-toggle:checked~nav {
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    nav {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        background-color: white;
+        padding: 10px;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        font-size: 1.5rem;
+        display: none;
+    }
+}
+
+
+.details{
+    font-size: larger;
+    margin-top: 78px;
+    width: 50%;
+    padding: 0 100px
+}
+
+strong{
+    color: gray;
+    font-weight: normal;
+    font-size: 20px;
+
+}
+
+.buttons{
+    align-items: center;
+}
+
+.name{
+    font-weight: 900;
+    font: italic small-caps bold 40px/2 Inter;
+}
+
+.brand{
+    margin-top: 26px;
+    font-size: 20px;
+}
+
+.model{
+    margin-top: 56px;
+    font-size: 20px;
+}
+
+.price{
+    font-size: 20px;
+    font-family: 'Paragraph (Sora)';
+}
+.size{
+    margin-top: 56px;
+    font-size: 20px;
+}
+
+.color{
+    margin-top: 56px;
+    font-size: 20px;
+}
+
+.state{
+    margin-top: 56px;
+    font-size: 20px;
+    margin-bottom: 26px;
+}
+
+
+hr{
+    margin-top: 18px;
+    width: 100%;
+}
+
+#cart{
+    background-color: black;
+    color: white;
+    padding: 18px 281px;
+    border-radius: 4px;
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+    line-height: 1.6;
+    font-size: large;
+}
+ 
+#cart:hover{
+    background-color: #312f2d;
+    cursor: pointer;
+}
+

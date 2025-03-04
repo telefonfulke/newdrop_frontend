@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewDrop</title>
+    <link rel="stylesheet" href="./css/sell.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body id="header">
+    <header>
+        <div class="menu-logo">
+            <span class="menu-logo-blue">New</span>Drop
+        </div>
+
+        <nav>
+            <a href="../sell.html" class="sell">Sell</a>
+            <a href="#header" class="icon-home">
+                <i class="fa-solid fa-house"></i>
+            </a>
+            <a href="#" class="icon-cart">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+            <a href="#" class="icon-user">
+                <i class="fa-solid fa-user"></i>
+            </a>
+            <a href="#" class="icon-logout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            </a>
+        </nav>
+    </header>
+
+    <div class="center-container">
+        <form id="productForm">
+            <label class="search"><strong>List a product</strong></label>
+            <div class="box product">
+                <label for="product-pic"><strong>Upload pictures:</strong></label>
+                <input type="file" id="product-image" multiple style="display: none;">
+                <button id="uploadButton" type="button"><i class="fa-solid fa-plus"></i> Upload Images</button>
+
+                <!-- Kép előnézetek -->
+                <div id="image-preview-container" class="image-preview-container"></div>
+
+                <label for="product-brand"><strong>Brand:</strong></label>
+                <input type="text" id="product-brand" required>
+
+                <label for="product-model"><strong>Model:</strong></label>
+                <input type="text" id="product-model" required>
+
+                <label for="product-size"><strong>Size:</strong></label>
+                <input type="text" id="product-size" required>
+
+                <label for="product-color"><strong>Color:</strong></label>
+                <input type="text" id="product-color" required>
+
+                <label for="product-state"><strong>State:</strong></label>
+                <input type="text" id="product-state" required>
+
+                <label for="product-price"><strong>Listing price:</strong></label>
+                <input type="text" id="product-price" required>
+            </div>
+
+            <div class="button-group">
+                <button type="button" id="Back" class="back">Back</button>
+                <button type="submit" id="Submit" class="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="./js/sell.js"></script>
+</body>
+
+</html>
