@@ -127,7 +127,6 @@ nav a {
     border-radius: 8px;
     overflow: hidden;
     width: 1500px;
-    max-height: 180px;
     margin: 15px;
     box-shadow: 0px 1px 6px grey;    
 }
@@ -149,7 +148,7 @@ nav a {
 .remove-item {
     background-color: white; 
     color: black; 
-    border: none;
+    border: blue;
     font-size: 20px; 
     font-weight: bold;
     padding: 10px 15px; 
