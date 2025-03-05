@@ -69,7 +69,7 @@ async function fetchitem() {
             <p class="color"><strong>Color:</strong> ${data.color}</p>
             <p class="state"><strong>State:</strong> ${data.state}</p>
             <div class="buttons">
-                <button class="cart" id="cart" onclick="window.location.href = '../cart.html'">Add to cart</button>
+                <button class="cart" id="cart">Add to cart</button>
             </div>
         </div>`;
 
@@ -78,6 +78,11 @@ async function fetchitem() {
             thumbnail.addEventListener("click", function () {
                 document.querySelector(".main-image").src = this.src;
             });
+        });
+
+        // "Add to cart" gomb eseményfigyelő
+        document.getElementById("cart").addEventListener("click", function () {
+            addToCart(data);
         });
 
     } else {
@@ -95,4 +100,25 @@ async function fetchitem() {
         </div>`;
     }
 }
+
+// Kosárhoz adás funkció
+function addToCart(item) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Ellenőrizzük, hogy a termék már benne van-e a kosárban
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+    if (!existingItem) {
+        cart.push({
+            id: item.id,
+            name: `${item.brand} ${item.model}`,
+            price: item.price,
+            size: item.size,
+            image: item.images[0]
+        });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    window.location.href = "cart.html"; // Átirányítás a kosár oldalra
+}
+
 
