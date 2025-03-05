@@ -127,6 +127,7 @@ nav a {
     border-radius: 8px;
     overflow: hidden;
     width: 1500px;
+    max-height: 180px;
     margin: 15px;
     box-shadow: 0px 1px 6px grey;    
 }
@@ -146,18 +147,18 @@ nav a {
 
 
 .remove-item {
-    background-color: white; /* Piros háttér a törléshez */
-    color: black; /* Fehér szöveg */
+    background-color: white; 
+    color: black; 
     border: none;
-    font-size: 20px; /* Nagyobb betűméret */
+    font-size: 20px; 
     font-weight: bold;
-    padding: 10px 15px; /* Kényelmesebb méret */
+    padding: 10px 15px; 
     border-radius: 5px;
     cursor: pointer;
-    position: absolute; /* Jobbra igazítás */
-    right: 20px; /* Távolság a jobb széltől */
+    position: absolute;
+    right: 20px; 
     top: 50%;
-    transform: translateY(-50%); /* Függőleges középre igazítás */
+    transform: translateY(-50%);
 }
 
 
