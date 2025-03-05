@@ -122,7 +122,7 @@ nav a {
     justify-content: space-evenly;
 }
 
-.product-list {
+.cart-list {
     display: flex;
     justify-content: center;
 }
@@ -136,7 +136,7 @@ nav a {
     margin: 20px;
     box-shadow: 0px 1px 6px grey;    
 }
-.product:hover{
+.cart-item:hover{
     transform: scale(1.01);
     cursor: pointer;
 }
@@ -148,7 +148,13 @@ nav a {
     border-right: 2px solid #ddd;
 }
 
-.product-details {
+
+.cart-container{
+    display: flex;
+    margin-top: 15px;
+}
+
+.cart-details {
     padding: 20px;
     justify-content: space-evenly;
 }
