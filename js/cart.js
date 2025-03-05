@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `).join("");
 
-            // Hozzáadjuk az eseménykezelőt az eltávolító gombokhoz
+
             document.querySelectorAll(".remove-item").forEach(button => {
                 button.addEventListener("click", function () {
                     let index = this.getAttribute("data-index");
@@ -49,12 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function removeFromCart(index) {
-        cart.splice(index, 1); // Eltávolítja az adott indexű elemet
-        localStorage.setItem("cart", JSON.stringify(cart)); // Frissíti a localStorage-t
-        renderCart(); // Újrarendereli a kosár tartalmát
+        cart.splice(index, 1); 
+        localStorage.setItem("cart", JSON.stringify(cart)); 
+        renderCart(); 
     }
 
-    renderCart(); // Meghívás betöltéskor
+    renderCart();
 });
 
 
