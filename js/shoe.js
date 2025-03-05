@@ -42,14 +42,13 @@ async function fetchitem() {
     const itemId = urlParams.get("id");
 
     const res = await fetch(`/api/getitem?id=${itemId}`, {
-        method: 'get'
+        method: 'GET'
     });
 
     const data = await res.json();
-    console.log(data);
+    console.log("Termék adatai:", data);
 
     if (data.images && data.images.length > 0) {
-        // Az első kép a fő kép lesz
         document.querySelector(".product-card").innerHTML = `
         <div class="images">
             <img src="${data.images[0]}" alt="${data.brand} ${data.model}" class="main-image">
@@ -73,14 +72,14 @@ async function fetchitem() {
             </div>
         </div>`;
 
-        // Ha szeretnéd, hogy kattintásra a fő kép változzon:
+        // Képválasztás kezelése
         document.querySelectorAll(".thumbnail").forEach(thumbnail => {
             thumbnail.addEventListener("click", function () {
                 document.querySelector(".main-image").src = this.src;
             });
         });
 
-        // "Add to cart" gomb eseményfigyelő
+        // **Biztos eseménykezelő az "Add to Cart" gombra**
         document.getElementById("cart").addEventListener("click", function () {
             addToCart(data);
         });
@@ -101,11 +100,11 @@ async function fetchitem() {
     }
 }
 
-// Kosárhoz adás funkció
+// **Kosárhoz adás funkció**
 function addToCart(item) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // Ellenőrizzük, hogy a termék már benne van-e a kosárban
+    // Ha a termék már benne van a kosárban, ne adjuk hozzá újra
     const existingItem = cart.find((cartItem) => cartItem.id === item.id);
     if (!existingItem) {
         cart.push({
@@ -115,10 +114,14 @@ function addToCart(item) {
             size: item.size,
             image: item.images[0]
         });
-    }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    window.location.href = "cart.html"; // Átirányítás a kosár oldalra
+        localStorage.setItem("cart", JSON.stringify(cart));
+        console.log("Kosár tartalma frissítve:", cart);
+        window.location.href = "cart.html"; // Átirányítás a kosár oldalra
+    } else {
+        console.log("A termék már a kosárban van!");
+    }
 }
+
 
 

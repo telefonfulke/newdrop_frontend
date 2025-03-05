@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
 //logout
 async function logout(){
     const res = await fetch('/api/logout',{
