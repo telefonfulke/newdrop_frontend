@@ -147,8 +147,17 @@ p{
     margin-top: 30px;
 }
 
-.remove-item{
-
+.remove-item {
+    background-color: white; /* Piros háttér a törléshez */
+    color: black; /* Fehér szöveg */
+    border: none;
+    padding: 10px 15px; /* Kényelmesebb méret */
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute; 
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* Függőleges középre igazítás */
 }
 
 
