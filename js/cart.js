@@ -18,6 +18,26 @@ btncheckout.addEventListener('click',()=>{
 })
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartContainer = document.querySelector(".cart-container");
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    } else {
+        cartContainer.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}" class="cart-image">
+                <div class="cart-details">
+                    <p><strong>${item.name}</strong></p>
+                    <p class="price">${item.price} Ft</p>
+                    <p class="size">Size: ${item.size}</p>
+                </div>
+            </div>
+        `).join("");
+    }
+});
+
 
 
 //logout
