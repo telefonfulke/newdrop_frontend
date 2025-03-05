@@ -135,8 +135,8 @@ nav a {
 }
 
 .cart-image{
-    max-width: 130px;
-    max-height: 130px;
+    max-width: 140px;
+    max-height: 140px;
     object-fit: cover;
     border-radius: 6px;
     margin-right: 10px;

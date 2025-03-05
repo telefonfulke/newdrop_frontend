@@ -22,21 +22,41 @@ document.addEventListener("DOMContentLoaded", function () {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     let cartContainer = document.querySelector(".cart-container");
 
-    if (cart.length === 0) {
-        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
-    } else {
-        cartContainer.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <img src="${item.image}" alt="${item.name}" class="cart-image">
-                <div class="cart-details">
-                    <p><strong>${item.name}</strong></p>
-                    <p class="price">${item.price} Ft</p>
-                    <p class="size">Size: ${item.size}</p>
+    function renderCart() {
+        if (cart.length === 0) {
+            cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        } else {
+            cartContainer.innerHTML = cart.map((item, index) => `
+                <div class="cart-item">
+                    <img src="${item.image}" alt="${item.name}" class="cart-image">
+                    <div class="cart-details">
+                        <p><strong>${item.name}</strong></p>
+                        <p class="price">${item.price} Ft</p>
+                        <p class="size">Size: ${item.size}</p>
+                        <button class="remove-item" data-index="${index}">-</button>
+                    </div>
                 </div>
-            </div>
-        `).join("");
+            `).join("");
+
+            // Hozzáadjuk az eseménykezelőt az eltávolító gombokhoz
+            document.querySelectorAll(".remove-item").forEach(button => {
+                button.addEventListener("click", function () {
+                    let index = this.getAttribute("data-index");
+                    removeFromCart(index);
+                });
+            });
+        }
     }
+
+    function removeFromCart(index) {
+        cart.splice(index, 1); // Eltávolítja az adott indexű elemet
+        localStorage.setItem("cart", JSON.stringify(cart)); // Frissíti a localStorage-t
+        renderCart(); // Újrarendereli a kosár tartalmát
+    }
+
+    renderCart(); // Meghívás betöltéskor
 });
+
 
 
 
