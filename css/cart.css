@@ -148,10 +148,10 @@ p{
 }
 
 .remove-item{
-    float: right;
+    float:inline-end;
     border: none;
     color: black;
-    font-weight: 24px;
+    font-size: larger;
 }
 
 
@@ -176,6 +176,7 @@ p{
 .price {
     font-size: 16px;
     color: #4CAF50;
+    margin-top: 5px;
     margin-bottom: 5px;
 
 }
