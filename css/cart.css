@@ -141,7 +141,7 @@ nav a {
     cursor: pointer;
 }
 
-.product img {
+.cart-imgage {
     width: 120px;
     height: 120px;
     object-fit: cover;
