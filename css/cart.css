@@ -136,8 +136,8 @@ nav a {
 }
 
 .cart-image{
-    max-width: 130px;
-    max-height: 130px;
+    max-width: 140px;
+    max-height: 140px;
     object-fit: cover;
     border-radius: 6px;
     margin-right: 10px;
@@ -151,7 +151,7 @@ nav a {
     border: none;
     font-size: 20px; /* Nagyobb betűméret */
     font-weight: bold;
-    padding: 10px 15px; /* Kényelmesebb méret */
+    padding: 70px 45px; /* Kényelmesebb méret */
     border-radius: 5px;
     cursor: pointer;
     position: absolute; /* Jobbra igazítás */
@@ -191,10 +191,6 @@ nav a {
     justify-content: space-evenly;
     
 }
-
-p{
-    margin-top: 30px;
-} 
 
 
 #checkout{
