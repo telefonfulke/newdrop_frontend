@@ -136,17 +136,14 @@ nav a {
 }
 
 .cart-image{
-    max-width: 140px;
-    max-height: 140px;
+    max-width: 130px;
+    max-height: 130px;
     object-fit: cover;
     border-radius: 6px;
     margin-right: 10px;
     border-right: 2px solid #ddd;
 }
 
-p{
-    margin-top: 30px;
-}
 
 .remove-item {
     background-color: white; /* Piros háttér a törléshez */
@@ -194,6 +191,10 @@ p{
     justify-content: space-evenly;
     
 }
+
+p{
+    margin-top: 30px;
+} 
 
 
 #checkout{
