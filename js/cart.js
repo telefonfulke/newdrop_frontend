@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             cartContainer.innerHTML = "<p>Your cart is empty.</p>";
         } else {
             cartContainer.innerHTML = cart.map((item, index) => `
-                <div class="cart-item">
+                <div class="cart-item" data-id="${item.id}">
                     <img src="${item.image}" alt="${item.name}" class="cart-image">
                     <div class="cart-details">
                         <p><strong>${item.name}</strong></p>
@@ -38,20 +38,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             `).join("");
 
-
+            // Eltávolító gomb eseménykezelő
             document.querySelectorAll(".remove-item").forEach(button => {
-                button.addEventListener("click", function () {
+                button.addEventListener("click", function (event) {
+                    event.stopPropagation(); // Ne aktiválja a kattintás eseményt a szülő elemre
                     let index = this.getAttribute("data-index");
                     removeFromCart(index);
+                });
+            });
+
+            // Termékre kattintás eseménykezelő (átirányítás a shoe.html-re)
+            document.querySelectorAll(".cart-item").forEach(item => {
+                item.addEventListener("click", function () {
+                    let itemId = this.getAttribute("data-id");
+                    window.location.href = `shoe.html?id=${itemId}`; // Átirányítás az adott termékre
                 });
             });
         }
     }
 
     function removeFromCart(index) {
-        cart.splice(index, 1); 
-        localStorage.setItem("cart", JSON.stringify(cart)); 
-        renderCart(); 
+        cart.splice(index, 1);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        renderCart();
     }
 
     renderCart();
