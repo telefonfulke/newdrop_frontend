@@ -31,19 +31,20 @@ async function getProfile() {
             headers: {
                 'content-type': 'application/json'
             },
-            credentials: 'include' 
+            credentials: 'include'
         });
+
+        if (!res.ok) {
+            const errorData = await res.json();
+            console.error('Error Response:', errorData);
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
 
         const data = await res.json();
         console.log('Profile Data:', data);
 
-        if (res.ok) {
-            document.getElementById('name').innerHTML = data[0].name || "";
-            document.getElementById('email').innerHTML = data[0].email || "";
-        } else {
-            alert('Hiba a profiladatok lekérésekor!');
-            window.location.href = '../login.html';
-        }
+        document.getElementById('name').innerHTML = data[0].name || "";
+        document.getElementById('email').innerHTML = data[0].email || "";
     } catch (error) {
         console.error('Error fetching profile:', error);
         alert('Hiba a profiladatok lekérésekor!');
@@ -53,7 +54,6 @@ async function getProfile() {
 
 // Call the function to fetch profile data when the page loads
 document.addEventListener('DOMContentLoaded', getProfile);
-
 
 
 
