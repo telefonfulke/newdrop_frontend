@@ -25,20 +25,8 @@ btnEdit.addEventListener('click',()=>{
 });
 
 
-const token = localStorage.getItem('token');
-if (token) {
-    const decodedToken = jwt.decode(token); // Decode the token to check its expiration
-    console.log('Token expiration:', new Date(decodedToken.exp * 1000));
-}
 
 async function getProfile() {
-    const token = localStorage.getItem('token');
-    if (!token) {
-        console.error('No token found in localStorage');
-        window.location.href = '../login.html';
-        return;
-    }
-
     try {
         const res = await fetch('/api/profile', {
             method: 'GET',
