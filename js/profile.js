@@ -35,6 +35,10 @@ btnEdit3.addEventListener('click',()=>{
 
 
 
+document.addEventListener('DOMContentLoaded', () =>{
+    getProfile()
+});
+
 async function getProfile() {
     const res = await fetch('/api/profile', {
         method: 'GET',
@@ -48,16 +52,15 @@ async function getProfile() {
     console.log(data);
 
     if (res.ok) {
-        document.getElementById('name').textContent = data.name || "N/A";
-        document.getElementById('email').textContent = data.email || "N/A";
+        document.getElementById('name').value = data[0].name || "N/A";
+        document.getElementById('email').value = data[0].email || "N/A";
     } else {
         alert('Hiba a profiladatok lekérésekor!');
         window.location.href = '../login.html';
     }
 }
 
-// Oldal betöltésekor fusson le
-document.addEventListener('DOMContentLoaded', getProfile);
+
 
 
 
