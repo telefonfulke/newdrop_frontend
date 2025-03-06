@@ -25,9 +25,6 @@ btnEdit.addEventListener('click',()=>{
     window.location.href='../editProfile.html'
 });
 
-btnEdit2.addEventListener('click',()=>{
-    window.location.href='../shippinginfo.html'
-});
 
 btnEdit3.addEventListener('click',()=>{
     window.location.href='../solditem.html'
@@ -47,6 +44,7 @@ async function getProfile() {
         },
         credentials: 'include' 
     });
+    
 
     const data = await res.json();
     console.log(data);
