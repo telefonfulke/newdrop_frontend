@@ -24,13 +24,27 @@ btnEdit.addEventListener('click',()=>{
     window.location.href='../editProfile.html'
 });
 
+
+const token = localStorage.getItem('token');
+if (token) {
+    const decodedToken = jwt.decode(token); // Decode the token to check its expiration
+    console.log('Token expiration:', new Date(decodedToken.exp * 1000));
+}
+
 async function getProfile() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        console.error('No token found in localStorage');
+        window.location.href = '../login.html';
+        return;
+    }
+
     try {
         const res = await fetch('/api/profile', {
             method: 'GET',
             headers: {
-                'content-type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}` // Ensure the token is stored and retrieved correctly
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
             },
             credentials: 'include'
         });
@@ -38,14 +52,19 @@ async function getProfile() {
         if (!res.ok) {
             const errorData = await res.json();
             console.error('Error Response:', errorData);
-            throw new Error(`HTTP error! status: ${res.status}`);
+            if (res.status === 401 || res.status === 403) {
+                alert('Session expired. Please log in again.');
+                window.location.href = '../login.html';
+            } else {
+                alert('Hiba a profiladatok lekérésekor!');
+            }
+            return;
         }
 
         const data = await res.json();
         console.log('Profile Data:', data);
-
-        document.getElementById('name').innerHTML = data[0].name || "";
-        document.getElementById('email').innerHTML = data[0].email || "";
+        document.getElementById('name').innerHTML = data[0].name || '';
+        document.getElementById('email').innerHTML = data[0].email || '';
     } catch (error) {
         console.error('Error fetching profile:', error);
         alert('Hiba a profiladatok lekérésekor!');
@@ -53,7 +72,6 @@ async function getProfile() {
     }
 }
 
-// Call the function to fetch profile data when the page loads
 document.addEventListener('DOMContentLoaded', getProfile);
 
 
