@@ -52,8 +52,8 @@ async function getProfile() {
     console.log(data);
 
     if (res.ok) {
-        document.getElementById('name').value = data[0].name || "N/A";
-        document.getElementById('email').value = data[0].email || "N/A";
+        document.getElementById('name').innerHTML = data[0].name || "";
+        document.getElementById('email').innerHTML = data[0].email || "";
     } else {
         alert('Hiba a profiladatok lekérésekor!');
         window.location.href = '../login.html';
