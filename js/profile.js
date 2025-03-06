@@ -41,20 +41,23 @@ async function getProfile() {
         headers: {
             'content-type': 'application/json'
         },
-        credentials: 'include' // Szükséges a session vagy token miatt
+        credentials: 'include' 
     });
 
     const data = await res.json();
     console.log(data);
 
     if (res.ok) {
-        document.getElementById('name').textContent = data.name;
-        document.getElementById('email').textContent = data.email;
+        document.getElementById('name').textContent = data.name || "N/A";
+        document.getElementById('email').textContent = data.email || "N/A";
     } else {
         alert('Hiba a profiladatok lekérésekor!');
         window.location.href = '../login.html';
     }
 }
+
+// Oldal betöltésekor fusson le
+document.addEventListener('DOMContentLoaded', getProfile);
 
 
 
