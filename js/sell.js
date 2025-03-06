@@ -20,6 +20,10 @@ btnBack.addEventListener('click', () => {
     window.location.href = '../home.html'
 });
 
+btnSubmit.addEventListener('click',()=>{
+    window.location.href = '../home.html'
+})
+
 document.getElementById("uploadButton").addEventListener("click", function (e) {
     e.preventDefault();
     document.getElementById("product-image").click(); // Több fájl választása
