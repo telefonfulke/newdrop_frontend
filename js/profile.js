@@ -24,32 +24,35 @@ btnEdit.addEventListener('click',()=>{
     window.location.href='../editProfile.html'
 });
 
-
-document.addEventListener('DOMContentLoaded', () =>{
-    getProfile()
-});
-
 async function getProfile() {
-    const res = await fetch('/api/profile', {
-        method: 'GET',
-        headers: {
-            'content-type': 'application/json'
-        },
-        credentials: 'include' 
-    });
-    
+    try {
+        const res = await fetch('/api/profile', {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json'
+            },
+            credentials: 'include' 
+        });
 
-    const data = await res.json();
-    console.log(data);
+        const data = await res.json();
+        console.log('Profile Data:', data);
 
-    if (res.ok) {
-        document.getElementById('name').innerHTML = data[0].name || "";
-        document.getElementById('email').innerHTML = data[0].email || "";
-    } else {
+        if (res.ok) {
+            document.getElementById('name').innerHTML = data[0].name || "";
+            document.getElementById('email').innerHTML = data[0].email || "";
+        } else {
+            alert('Hiba a profiladatok lekérésekor!');
+            window.location.href = '../login.html';
+        }
+    } catch (error) {
+        console.error('Error fetching profile:', error);
         alert('Hiba a profiladatok lekérésekor!');
         window.location.href = '../login.html';
     }
 }
+
+// Call the function to fetch profile data when the page loads
+document.addEventListener('DOMContentLoaded', getProfile);
 
 
 
