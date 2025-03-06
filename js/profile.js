@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 });
 
 async function getProfile() {
-    const res = await fetch('/api/Profile', {
+    const res = await fetch('/api/profile', {
         method: 'GET',
         headers: {
             'content-type': 'application/json'
