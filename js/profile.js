@@ -42,7 +42,6 @@ async function getProfile() {
             console.error('Error Response:', errorData);
             if (res.status === 401 || res.status === 403) {
                 alert('Session expired. Please log in again.');
-                window.location.href = '../login.html';
             } else {
                 alert('Hiba a profiladatok lekérésekor!');
             }
@@ -56,7 +55,6 @@ async function getProfile() {
     } catch (error) {
         console.error('Error fetching profile:', error);
         alert('Hiba a profiladatok lekérésekor!');
-        window.location.href = '../login.html';
     }
 }
 
