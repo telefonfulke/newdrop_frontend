@@ -1,4 +1,3 @@
-
 const iconCart = document.getElementsByClassName("icon-cart")[0];
 const iconLogout = document.getElementsByClassName("icon-logout")[0];
 const iconHome = document.getElementsByClassName("icon-home")[0];
@@ -24,12 +23,6 @@ iconCart.addEventListener('click',()=>{
 btnEdit.addEventListener('click',()=>{
     window.location.href='../editProfile.html'
 });
-
-
-btnEdit3.addEventListener('click',()=>{
-    window.location.href='../solditem.html'
-});
-
 
 
 document.addEventListener('DOMContentLoaded', () =>{
