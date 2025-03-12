@@ -130,6 +130,10 @@ nav a {
 }
 
 
+.amount{
+    color: green;
+}
+
 
 .container {
     max-width: 400px;
