@@ -33,4 +33,25 @@ btnPlus.addEventListener('click',()=>{
 })
 
 
+document.addEventListener("DOMContentLoaded", function() {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let orderNameElement = document.querySelector(".order-name");
+    let amountElement = document.querySelector(".amount");
+
+    let totalAmount = 0;
+    let orderNames = [];
+
+    cart.forEach(item => {
+        orderNames.push(item.name);
+        totalAmount += item.price;
+    });
+
+    if (orderNameElement) {
+        orderNameElement.textContent = orderNames.join(", ");
+    }
+    if (amountElement) {
+        amountElement.textContent = totalAmount.toLocaleString() + " Ft";
+    }
+});
 
