@@ -32,6 +32,8 @@ window.onload = function () {
             async createOrder() {
                 try {
                     let amountElement = Number(localStorage.getItem("totalAmount"));
+                    console.log(amountElement);
+                    
                     if (!amountElement) {
                         console.error("Nem található az összeg eleme! Ellenőrizd a HTML struktúrát.");
                         alert("Hiba: az összeg nem található! Kérlek, frissítsd az oldalt.");
@@ -42,7 +44,8 @@ window.onload = function () {
                     if (isNaN(totalAmount) || totalAmount <= 0) {
                         throw new Error("Hibás összeg. Kérlek, ellenőrizd a rendelés adatait!");
                     }
-                    
+
+                    console.log(totalAmount);
 
                     const response = await fetch("/api/orders", {
                         method: "POST",
@@ -51,12 +54,16 @@ window.onload = function () {
                         },
                         body: JSON.stringify({ amount: totalAmount }),
                     });
+                    console.log(response);
+                    
 
                     if (!response.ok) {
                         throw new Error("Hiba a rendelés létrehozásakor.");
                     }
 
                     const orderData = await response.json();
+                    console.log(orderData);
+                    
                     return orderData.id;
                 } catch (error) {
                     console.error("Rendelés hiba:", error);
