@@ -29,23 +29,27 @@ window.onload = function () {
                 color: "gold",
                 label: "paypal",
             },
-            message: {
-                amount: 100,
-            },
             async createOrder() {
                 try {
-                    let orderData = JSON.parse(localStorage.getItem("cart")) || [];
-                    if (orderData.id) {
-                        return orderData.id;
-                    }
-                    const errorDetail = orderData?.details?.[0];
-                    const errorMessage = errorDetail
-                        ? `${errorDetail.issue} ${errorDetail.description} (${orderData.debug_id})`
-                        : JSON.stringify(orderData);
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                    
+                    const response = await fetch("/api/orders", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ items: cart }),
+                    });
 
-                    throw new Error(errorMessage);
+                    if (!response.ok) {
+                        throw new Error("Hiba a rendelés létrehozásakor.");
+                    }
+
+                    const orderData = await response.json();
+                    return orderData.id; // PayPal azonosító visszaadása
                 } catch (error) {
-                    console.error(error);
+                    console.error("Rendelés hiba:", error);
+                    alert("Hiba történt a rendelés során. Próbáld újra.");
                 }
             },
             async onApprove(data, actions) {
@@ -57,29 +61,25 @@ window.onload = function () {
                         },
                     });
 
-                    const orderData = await response.json();
-                    const errorDetail = orderData?.details?.[0];
-
-                    if (errorDetail?.issue === "INSTRUMENT_DECLINED") {
-                        return actions.restart();
-                    } else if (errorDetail) {
-                        throw new Error(`${errorDetail.description} (${orderData.debug_id})`);
-                    } else if (!orderData.purchase_units) {
-                        throw new Error(JSON.stringify(orderData));
-                    } else {
-                        const transaction =
-                            orderData?.purchase_units?.[0]?.payments?.captures?.[0] ||
-                            orderData?.purchase_units?.[0]?.payments?.authorizations?.[0];
-                        resultMessage(`Transaction ${transaction.status}: ${transaction.id}<br><br>See console for all available details`);
-                        console.log("Capture result", orderData, JSON.stringify(orderData, null, 2));
+                    if (!response.ok) {
+                        throw new Error("Hiba a fizetés feldolgozásakor.");
                     }
+
+                    const orderData = await response.json();
+                    const transaction =
+                        orderData?.purchase_units?.[0]?.payments?.captures?.[0] ||
+                        orderData?.purchase_units?.[0]?.payments?.authorizations?.[0];
+
+                    alert(`Sikeres tranzakció: ${transaction.id}`);
+
+                    console.log("Tranzakció adatok:", orderData);
                 } catch (error) {
-                    console.error(error);
-                    resultMessage(`Sorry, your transaction could not be processed...<br><br>${error}`);
+                    console.error("Fizetés hiba:", error);
+                    alert("Hiba történt a fizetés során. Próbáld újra.");
                 }
             },
         }).render("#paypal-button-container");
     } else {
-        console.error('PayPal SDK not loaded');
+        console.error("PayPal SDK not loaded");
     }
 };
