@@ -33,7 +33,7 @@ window.onload = function () {
                 try {
                     let amountElement = Number(localStorage.getItem("totalAmount"));
                     console.log(amountElement);
-                    
+                    /*
                     if (!amountElement) {
                         console.error("Nem található az összeg eleme! Ellenőrizd a HTML struktúrát.");
                         alert("Hiba: az összeg nem található! Kérlek, frissítsd az oldalt.");
@@ -65,6 +65,7 @@ window.onload = function () {
                     console.log(orderData);
                     
                     return orderData.id;
+                    */
                 } catch (error) {
                     console.error("Rendelés hiba:", error);
                     alert("Hiba történt a rendelés során. Próbáld újra.");
