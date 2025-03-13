@@ -14,7 +14,7 @@ iconUser.addEventListener('click',()=>{
     window.location.href='../profile.html'
 });
 btnSave.addEventListener('click',()=>{
-    window.location.href='../buy.html'
+    window.location.href='../home.html'
 })
 btnBack.addEventListener('click',()=>{
     window.location.href='../buy.html'
