@@ -38,11 +38,11 @@ window.onload = function () {
                         return;
                     }
 
-                    let totalAmount = parseFloat(amountElement.innerText.replace(/\D/g, "")) || 0;
-
-                    if (totalAmount <= 0) {
+                    let totalAmount = parseFloat(amountElement.innerText.replace(/[^\d,]/g, "").replace(",", "."));
+                    if (isNaN(totalAmount) || totalAmount <= 0) {
                         throw new Error("Hibás összeg. Kérlek, ellenőrizd a rendelés adatait!");
                     }
+                    
 
                     const response = await fetch("/api/orders", {
                         method: "POST",
