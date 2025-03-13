@@ -25,7 +25,7 @@ btnBack.addEventListener('click',()=>{
 });
 
 btnPay.addEventListener('click',()=>{
-    window.location.href='../home.html'
+    window.location.href='../billing.html'
 });
 
 btnPlus.addEventListener('click',()=>{
