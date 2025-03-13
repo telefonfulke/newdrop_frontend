@@ -32,7 +32,13 @@ window.onload = function () {
             async createOrder() {
                 try {
                     // Az összeg kinyerése a buy.html oldalról
-                    let totalAmountElement = document.querySelector("#total-amount");
+                    let amountElement = document.querySelector("[data-total]"); // Próbálj másik attribútumot
+                        if (amountElement) {
+                    console.log(amountElement.innerText);
+                        } else {
+                    console.log("Nem található az összeg eleme!");
+                            }
+
                     let totalAmount = totalAmountElement 
                         ? parseFloat(totalAmountElement.innerText.replace(/\D/g, "")) 
                         : 0;
