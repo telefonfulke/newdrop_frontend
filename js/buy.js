@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
         totalAmount += item.price;
     });
     console.log(totalAmount);
+    localStorage.setItem("totalAmount", totalAmount);
     
     if (orderNameElement) {
         orderNameElement.textContent = orderNames.join(", ");
