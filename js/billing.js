@@ -31,7 +31,7 @@ window.onload = function () {
             },
             async createOrder() {
                 try {
-                    let amountElement = document.querySelector(".amount"); 
+                    let amountElement = Number(localStorage.getItem("totalAmount"));
                     if (!amountElement) {
                         console.error("Nem található az összeg eleme! Ellenőrizd a HTML struktúrát.");
                         alert("Hiba: az összeg nem található! Kérlek, frissítsd az oldalt.");
