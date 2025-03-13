@@ -31,7 +31,6 @@ window.onload = function () {
             },
             async createOrder() {
                 try {
-                    // Az összeg lekérése
                     let amountElement = document.querySelector(".amount"); 
                     if (!amountElement) {
                         console.error("Nem található az összeg eleme! Ellenőrizd a HTML struktúrát.");
@@ -45,13 +44,12 @@ window.onload = function () {
                         throw new Error("Hibás összeg. Kérlek, ellenőrizd a rendelés adatait!");
                     }
 
-                    // Rendelés létrehozása a backend API-val
                     const response = await fetch("/api/orders", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
                         },
-                        body: JSON.stringify({ amount: totalAmount }),
+                        body: JSON.stringify({ amount: amountElement }),
                     });
 
                     if (!response.ok) {
