@@ -71,6 +71,7 @@ window.onload = function () {
                     alert("Hiba történt a rendelés során. Próbáld újra.");
                 }
             },
+            /*
             async onApprove(data, actions) {
                 try {
                     const response = await fetch(`/api/orders/${data.orderID}/capture`, {
@@ -97,6 +98,7 @@ window.onload = function () {
                     alert("Hiba történt a fizetés során. Próbáld újra.");
                 }
             },
+            */
         }).render("#paypal-button-container");
     } else {
         console.error("PayPal SDK not loaded");
