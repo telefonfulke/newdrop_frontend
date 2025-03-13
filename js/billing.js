@@ -31,23 +31,21 @@ window.onload = function () {
             },
             async createOrder() {
                 try {
-                    // Az összeg kinyerése a buy.html oldalról
-                    let amountElement = document.querySelector("[data-total]"); // Próbálj másik attribútumot
-                        if (amountElement) {
-                    console.log(amountElement.innerText);
-                        } else {
-                    console.log("Nem található az összeg eleme!");
-                            }
+                    // Az összeg lekérése
+                    let amountElement = document.querySelector(".amount"); 
+                    if (!amountElement) {
+                        console.error("Nem található az összeg eleme! Ellenőrizd a HTML struktúrát.");
+                        alert("Hiba: az összeg nem található! Kérlek, frissítsd az oldalt.");
+                        return;
+                    }
 
-                    let totalAmount = totalAmountElement 
-                        ? parseFloat(totalAmountElement.innerText.replace(/\D/g, "")) 
-                        : 0;
+                    let totalAmount = parseFloat(amountElement.innerText.replace(/\D/g, "")) || 0;
 
                     if (totalAmount <= 0) {
                         throw new Error("Hibás összeg. Kérlek, ellenőrizd a rendelés adatait!");
                     }
 
-                    // Küldjük az adatokat a backendnek
+                    // Rendelés létrehozása a backend API-val
                     const response = await fetch("/api/orders", {
                         method: "POST",
                         headers: {
@@ -98,4 +96,5 @@ window.onload = function () {
         console.error("PayPal SDK not loaded");
     }
 };
+
 
