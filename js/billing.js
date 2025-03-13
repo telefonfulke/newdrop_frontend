@@ -49,7 +49,7 @@ window.onload = function () {
                         headers: {
                             "Content-Type": "application/json",
                         },
-                        body: JSON.stringify({ amount: amountElement }),
+                        body: JSON.stringify({ amount: totalAmount }),
                     });
 
                     if (!response.ok) {
