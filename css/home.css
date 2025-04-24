@@ -10,31 +10,29 @@ body {
     background-color: white;
 }
 
-h1{
+h1 {
     font-size: 17px;
     font-weight: lighter;
     font-family: 'Paragraph (Sora)';
     color: grey;
 }
 
-h2{
+h2 {
     font-size: 14px;
     font-family: Georgia, serif;
     width: 210px;
 }
 
-.section-title{
+.section-title {
     font-size: 27px;
     font-family: Georgia, serif;
     margin-top: 67px;
 }
 
-
 a {
     text-decoration: none;
     color: inherit;
 }
-
 
 header {
     background-color: white;
@@ -46,9 +44,7 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: 0px 2px 6px grey;
-
 }
-
 
 .menu-logo, .menu-logo-blue {
     font-size: 2rem;
@@ -73,7 +69,7 @@ nav a {
     color: black;
 }
 
-.icon-home, .icon-user, .icon-logout, .icon-cart,.sell{
+.icon-home, .icon-user, .icon-logout, .icon-cart, .sell {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,21 +79,19 @@ nav a {
     transition: ease 500ms;
 }
 
-.sell{
+.sell {
     font: italic small-caps bold 16px/2 cursive;
 }
-
 
 .icon-logout {
     color: black;
 }
 
-
 .icon-home:hover,
 .icon-user:hover,
 .icon-logout:hover,
 .icon-cart:hover,
-.sell:hover{
+.sell:hover {
     transform: scale(1.1);
 }
 
@@ -128,26 +122,6 @@ nav a {
     display: flex;
 }
 
-@media screen and (max-width: 768px) {
-    .hamburger-menu {
-        display: flex;
-    }
-
-    nav {
-        flex-direction: row;
-        justify-content: space-around;
-        width: 100%;
-        background-color: white;
-        padding: 10px;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        font-size: 1.5rem;
-        display: none;
-
-    }
-}
-
 .container {
     display: flex;
     max-width: 1670px;
@@ -161,14 +135,13 @@ nav a {
 .card {
     display: flex;
     flex-direction: column;
-    background-color: white ;
+    background-color: white;
     padding: 45px 45px 15px 45px;
     border-radius: 20px;
-    flex-direction: column;
     flex-wrap: wrap;
 }
 
-hr{
+hr {
     height: 1px;
     color: grey;
     background-color: grey;
@@ -183,7 +156,7 @@ hr{
 }
 
 .card-header img {
-    width:310px;
+    width: 310px;
     justify-content: center;
     align-items: center;
 }
@@ -202,7 +175,7 @@ hr{
 .items::-webkit-scrollbar-thumb {
     background: black;
     border-radius: 10px;
-    height: 8px; 
+    height: 8px;
 }
 
 .items {
@@ -212,16 +185,13 @@ hr{
     width: 100%;
     overflow-y: hidden;
     overflow-x: scroll;
-    overflow-x: auto;
 }
-
 
 .card-header {
     display: flex;
     align-items: center;
     height: 310px;
 }
-
 
 .card-body {
     flex-grow: 1;
@@ -239,10 +209,8 @@ hr{
     justify-content: space-evenly;
 }
 
-
-
 .search-container {
-    position: relative; 
+    position: relative;
     display: inline-block;
 }
 
@@ -256,12 +224,14 @@ hr{
     outline: none;
 }
 
-.search-bar:hover{
+.search-bar:hover {
     border: 1px solid gray;
 }
-.search-bar:focus{
+
+.search-bar:focus {
     border: 1px solid black;
 }
+
 .dropdown {
     display: none;
     position: absolute;
@@ -297,15 +267,111 @@ hr{
     object-fit: cover;
     border-radius: 6px;
     margin-right: 10px;
-
 }
+
 .dropdown p:hover {
     background: #f5f5f5;
 }
 
-
-p{
+p {
     margin-left: 55px;
     font-size: 17px;
     font-family: Georgia, serif;
+}
+
+/* --------------------- RESPONSIVE (PHONE VIEW) --------------------- */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .menu-logo, .menu-logo-blue {
+        font-size: 1.5rem;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+        margin-right: 0;
+    }
+
+    .dropdown.active {
+        width: 100%;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        position: static;
+        width: 100%;
+        display: none;
+        gap: 1rem;
+    }
+
+    .menu-toggle:checked~nav {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .container {
+        padding: 0 10px;
+        width: 100%;
+    }
+
+    .items {
+        flex-direction: column;
+        overflow-x: hidden;
+    }
+
+    .card {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .card-header img {
+        width: 100%;
+        height: auto;
+    }
+
+    .card-body {
+        padding: 10px 0;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    h1, h2, .section-title {
+        font-size: 1rem;
+        width: auto;
+    }
+
+    .icon-home, .icon-user, .icon-logout, .icon-cart, .sell {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .dropdown-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dropdown-item img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 8px;
+    }
+
+    p {
+        margin-left: 10px;
+        font-size: 15px;
+    }
 }
