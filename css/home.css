@@ -279,7 +279,7 @@ p {
     font-family: Georgia, serif;
 }
 
-/* --------------------- RESPONSIVE (PHONE VIEW) --------------------- */
+/* RESPONSIVE  */
 @media screen and (max-width: 768px) {
     header {
         flex-direction: column;
