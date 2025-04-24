@@ -32,43 +32,37 @@
             </a>
         </nav>
 
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <input type="checkbox" class="menu-toggle">
     </header>
-
 
     <div class="section">
         <div class="profile-container">
             <h3>Profile Info</h3>
             <p><i>Name:</i> <span id="name"></span> <i>Email:</i> <span id="email"></span></p>
             <button onclick="logout()">Logout</button>
-        </br>
             <button type="button" id="editProfile" class="edit-button">Edit</button>
-            </div>
-            <script src="./js/profile.js"></script>
-
-
         </div>
+    </div>
 
-
-     <div class="section">
-           <h3>Shipping info</h3>
-
+    <div class="section">
+        <h3>Shipping info</h3>
         <div class="shipping-info">
             <span class="adress-info">Shipping Address</span>
         </div>
-
         <button type="button" id="editOrder" class="edit-button">Edit</button>
     </div>
 
-
-
-
-
     <div class="section">
-            <h3>Sold Items</h3>
-            <button type="button" id="soldItems" class="edit-button">Check Items</button>
+        <h3>Sold Items</h3>
+        <button type="button" id="soldItems" class="edit-button">Check Items</button>
     </div>
-</body>
 
-<script src="./js/profile.js"></script>
+    <script src="./js/profile.js"></script>
+</body>
 
 </html>

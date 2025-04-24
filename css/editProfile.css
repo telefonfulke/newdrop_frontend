@@ -1,4 +1,4 @@
-
+/* alap beállítások */
 * {
     margin: 0;
     padding: 0;
@@ -8,19 +8,17 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
-    
 }
 
 header {
     background-color: white;
-    padding: 15px 30px; 
+    padding: 15px 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;
     position: sticky;
     top: 0;
     box-shadow: 0px 2px 6px grey;
-    
 }
 
 .menu-logo, .menu-logo-blue {
@@ -46,7 +44,7 @@ nav a {
     color: black;
 }
 
-.icon-home, .icon-user, .icon-logout, .icon-cart{
+.icon-home, .icon-user, .icon-logout, .icon-cart {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -56,11 +54,9 @@ nav a {
     transition: ease 500ms;
 }
 
-
 .icon-logout {
     color: black;
 }
-
 
 .icon-home:hover,
 .icon-user:hover,
@@ -74,14 +70,18 @@ nav a {
     justify-content: center;
     align-items: center;
     height: 50vh;
-    width: 85vw;
+    width: 100%;
 }
-
 
 form {
     display: flex;
     flex-direction: column;
-    
+    width: 100%;
+    max-width: 500px;  /* Limiting max width */
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 10px;
 }
 
 label {
@@ -91,7 +91,7 @@ label {
 }
 
 input {
-    width: 250%;
+    width: 100%;
     padding: 10px;
     border-radius: 15px;
     border: none;
@@ -102,20 +102,21 @@ input {
     box-shadow: 0px 1px 6px grey;
 }
 
-
 .button-group {
     display: flex;
     margin-top: 17px;
     gap: 7px;
+    flex-direction: column;  /* Stack buttons vertically on small screens */
 }
 
 button {
-    width: 48%;
+    width: 100%;
     padding: 8px;
     border: none;
     border-radius: 15px;
     font-size: 14px;
     cursor: pointer;
+    margin-bottom: 10px;  /* Add space between buttons */
 }
 
 .back {
@@ -123,7 +124,6 @@ button {
     color: white;
     border-radius: 6px;
     font-weight: bold;
-    width: 138px;
     height: 37px;
 }
 
@@ -132,16 +132,78 @@ button {
     color: white;
     border-radius: 6px;
     font-weight: bold;
-    width: 138px;
     height: 37px;
-    
 }
 
-
 .back:hover,
-.save:hover{
-        background-color: #312f2d;
-        cursor: pointer;
+.save:hover {
+    background-color: #312f2d;
+    cursor: pointer;
+}
+
+/* Responsive design for mobile and tablets */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+    }
+
+    nav {
+        gap: 1rem;
+        font-size: 1.5rem;
+    }
+
+    .menu-logo {
+        font-size: 1.5rem;
+    }
+
+    .center-container {
+        height: auto;
+        padding: 15px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .button-group {
+        flex-direction: column;  /* Stack buttons vertically */
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+/* Tablet and mobile screens */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    nav {
+        font-size: 1.3rem;
+        gap: 0.8rem;
+    }
+
+    .menu-logo {
+        font-size: 1.2rem;
+    }
+
+    .center-container {
+        padding: 10px;
+    }
+
+    form {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    button {
+        width: 100%;
+    }
 }
 
 
