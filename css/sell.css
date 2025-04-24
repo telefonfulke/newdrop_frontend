@@ -7,7 +7,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
-    
 }
 
 header {
@@ -19,10 +18,9 @@ header {
     position: sticky;
     top: 0;
     box-shadow: 0px 2px 6px gray;
-    
 }
 
-.sell{
+.sell {
     font: italic small-caps bold 16px/2 cursive;
 }
 
@@ -49,7 +47,7 @@ nav a {
     color: black;
 }
 
-.icon-home, .icon-user, .icon-logout, .icon-cart,.sell{
+.icon-home, .icon-user, .icon-logout, .icon-cart, .sell {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,7 +56,6 @@ nav a {
     border-radius: 50%;
     transition: ease 500ms;
 }
-
 
 .icon-logout {
     color: black;
@@ -72,7 +69,6 @@ nav a {
     transform: scale(1.1);
 }
 
-
 label {
     font-size: 14px;
     margin-top: 10px;
@@ -83,6 +79,12 @@ label {
 input {
     background-color: white;
     box-shadow: 0px 2px 6px silver;
+    width: 100%;
+    padding: 8px;
+    border-radius: 15px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: none;
 }
 
 button {
@@ -92,7 +94,7 @@ button {
     margin-top: 16px;
 }
 
-.back {
+.back, .submit {
     background-color: black;
     color: white;
     border-radius: 6px;
@@ -101,15 +103,10 @@ button {
 }
 
 .submit {
-    background-color: black;
-    color: white;
-    border-radius: 6px;
-    font-weight: bold;
-    width: 137px;
     height: 37px;
 }
 
-.button-group{
+.button-group {
     display: flex;
     text-align: center;
     margin: 0 auto;
@@ -118,55 +115,39 @@ button {
     gap: 7px;
 }
 
-input {
-    width: 100%;
-    padding: 8px;
-    border-radius: 15px;
-    margin-top: 5px;
-    font-size: 14px;
-    background-color: white;
-    border: none;
-}
-
-.box{
+.box {
     background-color: white;
     padding: 15px;
     border-radius: 16px;
-    margin-bottom: 15px;
-    box-shadow: 0px 1px 6px grey;
     margin: 546px;
     margin-top: 45px;
     margin-bottom: 0px;
+    box-shadow: 0px 1px 6px grey;
 }
 
-
-#uploadButton{
+#uploadButton {
     color: black;
     border: none;
     background-color: white;
     box-shadow: 0px 1px 6px silver;
     border-radius: 16px;
     padding: 11px;
-    
 }
 
-
-.search{
+.search {
     justify-content: center;
     margin-bottom: 0px;
     margin-top: 37px;
     font-size: larger;
 }
 
-#uploadButton:hover{
-    transform: scale(1.02);
-}
+#uploadButton:hover,
 .submit:hover,
-.back:hover{
+.back:hover {
+    transform: scale(1.02);
     background-color: #312f2d;
     cursor: pointer;
 }
-
 
 .image-preview-container {
     display: flex;
@@ -181,4 +162,76 @@ input {
     object-fit: cover;
     border: 2px solid #ddd;
     border-radius: 5px;
+}
+
+/* ========== MOBILE RESPONSIVE STYLES ========== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .menu-logo {
+        font-size: 1.5rem;
+    }
+
+    nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        font-size: 1.5rem;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .icon-home, .icon-user, .icon-logout, .icon-cart, .sell {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+
+    .center-container {
+        padding: 10px;
+    }
+
+    .box {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input {
+        font-size: 13px;
+        padding: 6px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .submit, .back {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    #uploadButton {
+        font-size: 14px;
+        padding: 8px;
+        width: 100%;
+    }
+
+    .image-preview-container {
+        justify-content: center;
+    }
+
+    .image-preview {
+        width: 80px;
+        height: 80px;
+    }
 }
