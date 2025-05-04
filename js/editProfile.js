@@ -60,15 +60,15 @@ btnSave.addEventListener('click', async () => {
         });
 
         if (response.ok) {
-            alert('Profile updated successfully');
+            alert('Profil sikeresen frissítve!');
             window.location.href = '../profile.html';
         } else {
             const error = await response.json();
-            alert(error.message || 'Error updating profile');
+            alert(error.message || 'Hiba a frissítéskor');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('Error updating profile');
+        alert('Hiba a frissítéskor');
     }
 });
 
