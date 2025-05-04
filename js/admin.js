@@ -1,5 +1,5 @@
-const API_BASE = 'http://localhost:5502'; // Change to your backend URL
-const token = localStorage.getItem('token'); // Assumes JWT is stored here
+const API_BASE = 'http://localhost:5502'; 
+const token = localStorage.getItem('token'); 
 
 const usersTab = document.getElementById('usersTab');
 const productsTab = document.getElementById('productsTab');

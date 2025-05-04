@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: #fdf6e3;
+  background: #e3f0ff;
   margin: 0;
   padding: 0;
 }
@@ -9,14 +9,14 @@ body {
   max-width: 700px;
   margin: 40px auto;
   background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(255, 183, 94, 0.12);
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(30, 136, 229, 0.10);
   padding: 32px 24px 24px 24px;
 }
 
 h1 {
   text-align: center;
-  color: #ff9800;
+  color: #1976d2;
   margin-bottom: 28px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -29,27 +29,33 @@ h1 {
 }
 
 .tab-buttons button {
-  background: #fff3e0;
-  border: 1px solid #ffd180;
-  color: #ff9800;
+  background: linear-gradient(90deg, #42a5f5 0%, #1976d2 100%);
+  border: none;
+  color: #fff;
   font-size: 1em;
   font-weight: 600;
-  padding: 10px 24px;
-  margin: 0 6px;
-  border-radius: 20px;
+  padding: 12px 32px;
+  margin: 0 8px;
+  border-radius: 24px;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  outline: none;
+  position: relative;
+  overflow: hidden;
 }
 
 .tab-buttons button.active,
 .tab-buttons button:hover {
-  background: #ff9800;
+  background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
   color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.18);
 }
 
 .error {
   color: #fff;
-  background: #ff9800;
+  background: #1976d2;
   border-radius: 8px;
   padding: 8px 14px;
   margin: 14px 0;
@@ -65,46 +71,50 @@ table {
   background: #fff;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(255, 183, 94, 0.08);
+  box-shadow: 0 2px 8px rgba(66, 165, 245, 0.08);
 }
 
 th, td {
-  padding: 10px 8px;
+  padding: 12px 10px;
   text-align: left;
 }
 
 th {
-  background: #ffe0b2;
-  color: #ff9800;
+  background: #e3f2fd;
+  color: #1976d2;
   font-weight: 600;
 }
 
 tr:nth-child(even) {
-  background: #fff8e1;
+  background: #f5faff;
 }
 
 tr:hover {
-  background: #ffe0b2;
+  background: #e3f2fd;
   transition: background 0.2s;
 }
 
 .delete-user-btn, .delete-product-btn {
-  background: #ff9800;
+  background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
   color: #fff;
   border: none;
-  border-radius: 14px;
-  padding: 6px 14px;
+  border-radius: 16px;
+  padding: 8px 20px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.10);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  outline: none;
 }
 
 .delete-user-btn:hover, .delete-product-btn:hover {
-  background: #ffa726;
+  background: linear-gradient(90deg, #42a5f5 0%, #1976d2 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.18);
 }
 
 @media (max-width: 600px) {
   .container { padding: 10px 2vw; }
-  th, td { padding: 6px 2px; }
-  .tab-buttons button { padding: 7px 8px; font-size: 0.95em; }
+  th, td { padding: 8px 2px; }
+  .tab-buttons button { padding: 10px 10px; font-size: 0.95em; }
 }
