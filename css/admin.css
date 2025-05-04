@@ -1,0 +1,110 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #fdf6e3;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(255, 183, 94, 0.12);
+  padding: 32px 24px 24px 24px;
+}
+
+h1 {
+  text-align: center;
+  color: #ff9800;
+  margin-bottom: 28px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.tab-buttons button {
+  background: #fff3e0;
+  border: 1px solid #ffd180;
+  color: #ff9800;
+  font-size: 1em;
+  font-weight: 600;
+  padding: 10px 24px;
+  margin: 0 6px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tab-buttons button.active,
+.tab-buttons button:hover {
+  background: #ff9800;
+  color: #fff;
+}
+
+.error {
+  color: #fff;
+  background: #ff9800;
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin: 14px 0;
+  text-align: center;
+  font-weight: 500;
+  display: none;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(255, 183, 94, 0.08);
+}
+
+th, td {
+  padding: 10px 8px;
+  text-align: left;
+}
+
+th {
+  background: #ffe0b2;
+  color: #ff9800;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background: #fff8e1;
+}
+
+tr:hover {
+  background: #ffe0b2;
+  transition: background 0.2s;
+}
+
+.delete-user-btn, .delete-product-btn {
+  background: #ff9800;
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 6px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.delete-user-btn:hover, .delete-product-btn:hover {
+  background: #ffa726;
+}
+
+@media (max-width: 600px) {
+  .container { padding: 10px 2vw; }
+  th, td { padding: 6px 2px; }
+  .tab-buttons button { padding: 7px 8px; font-size: 0.95em; }
+}
