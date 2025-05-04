@@ -23,9 +23,7 @@ btnBack.addEventListener('click',()=>{
     window.location.href='../profile.html'
 });
 
-btnSave.addEventListener('click',()=>{
-    window.location.href='../profile.html'
-})
+
 
 
 document.addEventListener('DOMContentLoaded', async () => {
