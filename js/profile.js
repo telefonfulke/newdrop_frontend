@@ -14,7 +14,9 @@ iconHome.addEventListener('click',()=>{
 
 iconLogout.addEventListener('click',logout);
 
-
+btnEdit2.addEventListener('click',()=>{
+    window.location.href='../shippinginfo.html'
+})
 
 iconCart.addEventListener('click',()=>{
     window.location.href='../cart.html'
