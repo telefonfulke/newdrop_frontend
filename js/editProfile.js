@@ -28,8 +28,52 @@ btnSave.addEventListener('click',()=>{
 })
 
 
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const response = await fetch('/api/profile', {
+            credentials: 'include'
+        });
+        
+        if (response.ok) {
+            const userData = await response.json();
+            document.getElementById('name').value = userData.name || '';
+            document.getElementById('email').value = userData.email || '';
+        } else {
+            alert('Error loading profile data');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error loading profile data');
+    }
+});
 
-//logout
+btnSave.addEventListener('click', async () => {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+
+    try {
+        const response = await fetch('/api/profile', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: 'include',
+            body: JSON.stringify({ name, email })
+        });
+
+        if (response.ok) {
+            alert('Profile updated successfully');
+            window.location.href = '../profile.html';
+        } else {
+            const error = await response.json();
+            alert(error.message || 'Error updating profile');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error updating profile');
+    }
+});
+
 async function logout(){
     const res = await fetch('/api/logout',{
         method:'POST',
